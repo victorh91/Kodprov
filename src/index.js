@@ -15,7 +15,7 @@ function getImages() {
       const response = await fetch(url);
 
       // Storing data in form of JSON
-      var data = await response.json();
+      let data = await response.json();
 
       if (response) {
         showImages(data);
@@ -26,10 +26,10 @@ function getImages() {
 }
 function showImages(data) {
   //populate the UI with images
-  var url = data.data.images.downsized.url;
+  let url = data.data.images.downsized.url;
   //var url = data.data.images.original.url;
-  var createImg = document.createElement("img");
-  var getDiv = document.getElementById("container");
+  let createImg = document.createElement("img");
+  let getDiv = document.getElementById("container");
   createImg.className = "imgList";
   createImg.src = url;
   getDiv.appendChild(createImg);
@@ -39,16 +39,16 @@ function showImages(data) {
 function addModal(img) {
   //creating a modal when clicking on a img
   // create references to the modal...
-  var modal = document.getElementById("myModal");
+  let modal = document.getElementById("myModal");
   // the image in the modal
-  var modalImg = document.getElementById("modalImg");
+  let modalImg = document.getElementById("modalImg");
 
   img.onclick = function (evt) {
-    var currImg = img;
-    var prevImg = img.previousSibling;
-    var nextImg = img.nextSibling;
-    var img1 = document.getElementById("img1");
-    var img2 = document.getElementById("img2");
+    let currImg = img;
+    let prevImg = img.previousSibling;
+    let nextImg = img.nextSibling;
+    let img1 = document.getElementById("img1");
+    let img2 = document.getElementById("img2");
     modal.style.display = "block";
     modalImg.src = currImg.src;
     img1.src = prevImg.src;
@@ -71,7 +71,7 @@ function addModal(img) {
       img2.src = nextImg.src;
     };
   };
-  var close = document.getElementsByClassName("close")[0];
+  let close = document.getElementsByClassName("close")[0];
 
   close.onclick = function () {
     modal.style.display = "none";
